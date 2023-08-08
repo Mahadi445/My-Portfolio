@@ -24,9 +24,3 @@ class Projects_Data(models.Model):
         return self.project_name
     
     
-class BannerImages(models.Model):
-    Name = models.CharField(max_length=100)
-    Banner_images_Data = models.ImageField(upload_to='Banner_images/')
-    
-    def __str__(self):
-        return self.Name

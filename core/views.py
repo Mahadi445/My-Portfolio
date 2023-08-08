@@ -15,17 +15,18 @@ def Resume_page(request):
     return render (request,'core/resume.html') 
 
 
-
-
+#data show using paginator
 def Project_page(request):
     projects_list = Projects_Data.objects.all()
-    paginator = Paginator(projects_list, 1)  # Show 1 contacts per page
+    paginator = Paginator(projects_list, 2)  # Show 1 contacts per page
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     
     context={'page_obj': page_obj }
     return render (request,'core/project.html',context)
 
+
+#admin Data forms
 def Project_form_data(request):
     if request.method == 'POST':
         form = Data_form(request.POST, request.FILES)

@@ -18,7 +18,7 @@
                                 <div class="p-5">
                                     <h2 class="fw-bolder"> {{ forloop.counter }}. {{ x.project_name }} </h2> <br>
                                     <p>{{ x.project_details | title }}</p>
-                                     <a href="https://github.com/Mahadi445/Employe_Management_System" target="_blank"><button class="btn btn-outline-dark">Click Me</button></a>  
+                                     <a href= {{ x.project_links }} target="_blank"><button class="btn btn-outline-dark">Click Me</button></a>  
                                 </div>
                                 <img class="img-fluid" src="{{ x.project_images.url }}" alt="Image Not Found"  style="height: 149px;width: 315px; padding-right: 20px;" />
                             </div>
