@@ -1,0 +1,93 @@
+{% extends 'Basic.html' %}
+{% load static %}
+{% block title %} Project Page {% endblock title %}
+{% block content %}
+    <!-- Projects Section-->
+    <section class="py-5">
+        <div class="container px-5 mb-5">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    <!-- Project Card 1-->
+                    {% for x in page_obj  %}
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                    <h2 class="fw-bolder"> {{ forloop.counter }}. {{ x.project_name }} </h2> <br>
+                                    <p>{{ x.project_details | title }}</p>
+                                     <a href="https://github.com/Mahadi445/Employe_Management_System" target="_blank"><button class="btn btn-outline-dark">Click Me</button></a>  
+                                </div>
+                                <img class="img-fluid" src="{{ x.project_images.url }}" alt="Image Not Found"  style="height: 149px;width: 315px; padding-right: 20px;" />
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <nav aria-label="...">
+                        <span class="current">
+                           <b> Page : </b> {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} 
+                        </span> <br>
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=1" aria-label="First">
+                                        &laquo; first
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                        previous
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">previous</span>
+                                </li>
+                            {% endif %}
+                    
+                            {% for num in page_obj.paginator.page_range %}
+                                <li class="page-item{% if num == page_obj.number %} active{% endif %}">
+                                    <a class="page-link" href="?page={{ num }}"><b>{{ num }}</b></a>
+                                </li>
+                            {% endfor %}
+                    
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                        next
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                                        last &raquo;
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">next</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    
+                    
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call to action section-->
+    <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+            <div class="text-center">
+                <h2 class="display-4 fw-bolder mb-4">Let's build something togethers</h2>
+                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'Contact_page' %}">Contact me</a>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
