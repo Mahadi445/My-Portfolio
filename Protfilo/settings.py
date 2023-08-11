@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import django_heroku
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -141,3 +143,7 @@ EMAIL_HOST_PASSWORD = 'lrjrltytzbzeyhok'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'OTF Team <mh4928797@gmail.com>'
+
+
+#Activate Django_Heroku.
+django_heroku.settings(locals())
