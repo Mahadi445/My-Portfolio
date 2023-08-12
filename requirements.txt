@@ -16,7 +16,6 @@ django-allauth==0.54.0
 django-bootstrap-v5==1.0.11
 django-bootstrap4==23.1
 django-extensions==3.2.1
-django-heroku==0.3.1
 django-mathfilters==1.0.0
 django-multiselectfield==0.1.12
 djangorestframework==3.14.0
